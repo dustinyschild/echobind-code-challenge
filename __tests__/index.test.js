@@ -1,13 +1,12 @@
-import { render, screen } from "@testing-library/react";
+import * as RTL from "@testing-library/react";
 import Home from "@/pages/index";
+import { withTheme } from "../helpers/withTheme";
 
 describe("Home", () => {
   it("renders a heading", () => {
-    render(<Home />);
+    const { getByText } = RTL.render(withTheme(<Home />));
 
-    const heading = screen.getByRole("heading", {
-      name: "Keeping Up with the Cronenbergs"
-    });
+    const heading = getByText("Keeping Up with the Cronenbergs");
 
     expect(heading).toBeInTheDocument();
   });
