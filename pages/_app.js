@@ -1,4 +1,5 @@
 import { createGlobalStyle, ThemeProvider } from "styled-components";
+import PropTypes from "prop-types";
 
 const GlobalStyle = createGlobalStyle`
 html{
@@ -36,5 +37,10 @@ function MyApp({ Component, pageProps }) {
     </>
   );
 }
+
+MyApp.propTypes = {
+  Component: PropTypes.element.isRequired,
+  pageProps: PropTypes.object.isRequired
+};
 
 export default MyApp;
