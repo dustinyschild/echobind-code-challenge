@@ -10,7 +10,6 @@ html{
   max-width: 640px;
   margin:0 auto;
   padding: 0;
-  font-family: -apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
 }
 
 body{
@@ -18,7 +17,7 @@ body{
   min-height:100vh;
   padding: 1rem;
   margin-top:0;
-  font-family:Verdana;
+  font-family: -apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
 }
 `;
 
