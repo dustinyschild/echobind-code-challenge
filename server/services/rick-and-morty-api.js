@@ -1,9 +1,7 @@
-const api = {
-  url: "https://rickandmortyapi.com/api"
-};
+import { rickAndMortyApi } from "../../config";
 
 export const getAllLocations = async () => {
-  const res = await fetch(`${api.url}/location`);
+  const res = await fetch(`${rickAndMortyApi.url}/location`);
 
   const data = await res.json();
 
@@ -13,7 +11,7 @@ export const getAllLocations = async () => {
 };
 
 export const getLocation = async (id) => {
-  const res = await fetch(`${api.url}/location/${id}`);
+  const res = await fetch(`${rickAndMortyApi.url}/location/${id}`);
 
   const data = await res.json();
 
@@ -21,7 +19,7 @@ export const getLocation = async (id) => {
 };
 
 export const getCharacter = async (id) => {
-  const res = await fetch(`${api.url}/character/${id}`);
+  const res = await fetch(`${rickAndMortyApi.url}/character/${id}`);
 
   const data = await res.json();
 
