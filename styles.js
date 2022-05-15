@@ -21,7 +21,27 @@ body{
 `;
 
 export const theme = {
-  colors: {
-    primary: "#fafafa"
+  page: {
+    header: {
+      text: "#202329",
+      textHighlight: "#FF9800",
+      background: "#FFFFFF"
+    },
+    body: {
+      background: "#24282F"
+    },
+    footer: {
+      background: "#202329"
+    },
+    card: {
+      text: "#F5F5F5",
+      textHighlight: "#FF9800",
+      background: "#3C3E44"
+    },
+    status: {
+      dead: "#D63D2E",
+      alive: "#55CC44",
+      unknown: "#9E9E9E"
+    }
   }
 };
