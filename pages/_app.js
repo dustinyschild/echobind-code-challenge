@@ -10,6 +10,7 @@ html{
   max-width: 640px;
   margin:0 auto;
   padding: 0;
+  font-family: -apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
 }
 
 body{
@@ -39,7 +40,7 @@ function MyApp({ Component, pageProps }) {
 }
 
 MyApp.propTypes = {
-  Component: PropTypes.element.isRequired,
+  Component: PropTypes.elementType.isRequired,
   pageProps: PropTypes.object.isRequired
 };
 
