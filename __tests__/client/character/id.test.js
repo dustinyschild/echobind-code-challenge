@@ -2,7 +2,7 @@ import * as RTL from "@testing-library/react";
 import Character from "@/pages/character/[id]";
 import { withTheme } from "../../../helpers/withTheme";
 
-describe("Location", () => {
+describe("Character", () => {
   test("renders a heading", () => {
     const { getByText } = RTL.render(withTheme(<Character />));
 
