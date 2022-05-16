@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { HeroWrapper, HeroText } from "../components/styled/hero";
+import { HeroText, HeroWrapper } from "../components/styled/hero";
 import { getAllLocations } from "../server/services/rick-and-morty-api";
 
 function Home() {
