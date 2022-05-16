@@ -20,8 +20,9 @@ export const theme = {
   page: {
     header: {
       text: "#202329",
-      textHighlight: "#FF9800",
-      background: "#FFFFFF"
+      background: "#FFFFFF",
+      highlightText: "#FF9800",
+      highlightBackground: "#202329"
     },
     body: {
       background: "#24282F"

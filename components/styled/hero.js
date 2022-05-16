@@ -12,4 +12,8 @@ export const HeroText = styled.h1`
   font-size: 3.75rem;
   text-align: center;
   color: ${({ theme }) => theme.page.header.text};
+  &::selection {
+    color: ${({ theme }) => theme.page.header.highlightText};
+    background: ${({ theme }) => theme.page.header.highlightBackground};
+  }
 `;
