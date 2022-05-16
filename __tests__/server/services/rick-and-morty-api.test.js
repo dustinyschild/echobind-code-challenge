@@ -1,15 +1,33 @@
-import { getAllLocations } from "../../../server/services/rick-and-morty-api";
+import {
+  getAllLocations,
+  getCharacter,
+  getLocation
+} from "../../../server/services/rick-and-morty-api";
+
+const testData = { some: "data" };
 
 global.fetch = jest.fn(() =>
   Promise.resolve({
-    json: () => Promise.resolve({ rates: { CAD: 1.42 } })
+    json: () => Promise.resolve(testData)
   })
 );
 
 describe("Rick and Morty API service", () => {
-  test("should get data back from locations endpoint", async () => {
+  test("should get data from locations endpoint", async () => {
     const data = await getAllLocations();
 
-    console.log(data);
+    expect(data).toStrictEqual(testData);
+  });
+
+  test("should get data from location id endpoint", async () => {
+    const data = await getLocation(1);
+
+    expect(data).toStrictEqual(testData);
+  });
+
+  test("should get data from character id endpoint", async () => {
+    const data = await getCharacter(1);
+
+    expect(data).toStrictEqual(testData);
   });
 });
