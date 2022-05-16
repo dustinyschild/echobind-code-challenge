@@ -6,16 +6,12 @@ html{
   background: #F5F4F0;
   display:block;
   height: 100%;
-  max-width: 640px;
-  margin:0 auto;
+  margin: 0;
   padding: 0;
 }
 
 body{
-  background-color:#fafafa;
-  min-height:100vh;
-  padding: 1rem;
-  margin-top:0;
+  margin: 0;
   font-family: -apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
 }
 `;
