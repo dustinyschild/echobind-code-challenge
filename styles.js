@@ -16,29 +16,40 @@ body{
 }
 `;
 
+const colors = {
+  darkGrey: "#202329",
+  grey: "#24282F",
+  lightGrey: "#3C3E44",
+  yellow: "#FF9800",
+  white: "#FFFFFF",
+  offWhite: "#F5F5F5",
+  green: "#55CC44",
+  orange: "#D63D2E"
+};
+
 export const theme = {
   page: {
     header: {
-      text: "#202329",
-      background: "#FFFFFF",
-      highlightText: "#FF9800",
-      highlightBackground: "#202329"
+      text: colors.darkGrey,
+      background: colors.white,
+      highlightText: colors.yellow,
+      highlightBackground: colors.darkGrey
     },
     body: {
-      background: "#24282F"
+      background: colors.grey
     },
     footer: {
-      background: "#202329"
+      background: colors.darkGrey
     },
     card: {
-      text: "#F5F5F5",
-      textHighlight: "#FF9800",
-      background: "#3C3E44"
+      text: colors.offWhite,
+      textHighlight: colors.yellow,
+      background: colors.lightGrey
     },
     status: {
-      dead: "#D63D2E",
-      alive: "#55CC44",
-      unknown: "#9E9E9E"
+      dead: colors.orange,
+      alive: colors.green,
+      unknown: colors.lightGrey
     }
   }
 };
