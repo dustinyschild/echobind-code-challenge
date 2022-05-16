@@ -1,7 +1,8 @@
 import Head from "next/head";
 import * as Page from "../components/styled/page";
+import { getAllLocations } from "../server/services/rick-and-morty-api";
 
-export default function Home() {
+function Home() {
   return (
     <>
       <Head>
@@ -13,3 +14,11 @@ export default function Home() {
     </>
   );
 }
+
+export async function getServerSideProps() {
+  const locations = await getAllLocations();
+
+  return { props: { locations } };
+}
+
+export default Home;
