@@ -27,7 +27,7 @@ export async function getServerSideProps({ params }) {
 Location.propTypes = {
   location: PropTypes.shape({
     name: PropTypes.string.isRequired
-  })
+  }).isRequired
 };
 
 export default Location;
