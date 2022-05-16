@@ -5,14 +5,19 @@ html{
   box-sizing: border-box;
   background: #F5F4F0;
   display:block;
-  height: 100%;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
 }
 
 body{
   margin: 0;
+  height: 100%;
   font-family: -apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+}
+
+#__next: {
+  height: 100%
 }
 `;
 
@@ -36,6 +41,7 @@ export const theme = {
       highlightBackground: colors.darkGrey
     },
     body: {
+      text: colors.white,
       background: colors.grey
     },
     footer: {
