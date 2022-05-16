@@ -4,9 +4,15 @@ import { withTheme } from "../../../helpers/withTheme";
 
 describe("Location", () => {
   test("renders a heading", () => {
-    const { getByText } = RTL.render(withTheme(<Location />));
+    const location = {
+      name: "Name of Location"
+    };
 
-    const header = getByText("Location Name");
+    const { getByText } = RTL.render(
+      withTheme(<Location location={location} />)
+    );
+
+    const header = getByText(location.name);
 
     expect(header).toBeInTheDocument();
   });

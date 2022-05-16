@@ -4,9 +4,15 @@ import { withTheme } from "../../../helpers/withTheme";
 
 describe("Character", () => {
   test("renders a heading", () => {
-    const { getByText } = RTL.render(withTheme(<Character />));
+    const character = {
+      name: "character's name"
+    };
 
-    const header = getByText("Character Name");
+    const { getByText } = RTL.render(
+      withTheme(<Character character={character} />)
+    );
+
+    const header = getByText(character.name);
 
     expect(header).toBeInTheDocument();
   });
