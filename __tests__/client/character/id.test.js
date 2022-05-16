@@ -1,6 +1,6 @@
 import * as RTL from "@testing-library/react";
 import Character from "@/pages/character/[id]";
-import { withTheme } from "../../helpers/withTheme";
+import { withTheme } from "../../../helpers/withTheme";
 
 describe("Location", () => {
   test("renders a heading", () => {
