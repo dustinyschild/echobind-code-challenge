@@ -5,6 +5,7 @@ import { withTheme } from "../../../helpers/withTheme";
 describe("Character", () => {
   test("renders a heading", () => {
     const character = {
+      id: 1,
       name: "character's name",
       image: "http://dummyurl",
       status: "dead",
