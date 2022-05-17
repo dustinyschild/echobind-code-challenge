@@ -42,6 +42,8 @@ export const putCharacterDescription = async (newCharacter) => {
     if (character.id === parseInt(newCharacter.id)) {
       return newCharacter;
     }
+
+    return character;
   });
 
   await saveCharacters(characters);

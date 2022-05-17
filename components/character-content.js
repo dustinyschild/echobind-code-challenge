@@ -1,7 +1,8 @@
 import Image from "next/image";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import CharacterContext from "../context/character-context";
 
 const Container = styled.div`
   display: flex;
@@ -76,28 +77,24 @@ const getIdParam = (url) => {
   return url.split("/").at(-1);
 };
 
-const CharacterContent = ({
-  id,
-  image,
-  name,
-  status,
-  species,
-  type,
-  origin,
-  location,
-  description
-}) => {
-  const [text, setText] = useState(description || "");
+const CharacterContent = ({}) => {
+  const { character, setCharacter } = useContext(CharacterContext);
+
+  const [text, setText] = useState(character.description || "");
 
   const handleClick = () => {
     fetch("/api/characters", {
-      method: description ? "PUT" : "POST",
+      method: character.description ? "PUT" : "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        id,
+        id: character.id,
         description: text
       })
-    });
+    })
+      .then((res) => res.json())
+      .then(({ description }) => {
+        setCharacter({ ...character, description });
+      });
   };
 
   const handleChange = (e) => {
@@ -108,8 +105,8 @@ const CharacterContent = ({
     <Container>
       <Column style={{ maxWidth: "300px" }}>
         <Image
-          src={image}
-          alt={name}
+          src={character.image}
+          alt={character.name}
           layout="fixed"
           height={400}
           width={400}
@@ -118,15 +115,17 @@ const CharacterContent = ({
       </Column>
       <Column>
         <CharacterDetails>
-          <DetailItemLarge>{`Status: ${status}`}</DetailItemLarge>
-          <DetailItemMedium>{`Species: ${species}`}</DetailItemMedium>
-          <DetailItemMedium>{`Subspecies: ${type || "none"}`}</DetailItemMedium>
+          <DetailItemLarge>{`Status: ${character.status}`}</DetailItemLarge>
+          <DetailItemMedium>{`Species: ${character.species}`}</DetailItemMedium>
+          <DetailItemMedium>{`Subspecies: ${
+            character.type || "none"
+          }`}</DetailItemMedium>
           <DetailItemLink
-            href={`/location/${getIdParam(location.url)}`}
-          >{`Location: ${location.name}`}</DetailItemLink>
+            href={`/location/${getIdParam(character.location.url)}`}
+          >{`Location: ${character.location.name}`}</DetailItemLink>
           <DetailItemLink
-            href={`/location/${getIdParam(origin.url)}`}
-          >{`Origin: ${origin.name}`}</DetailItemLink>
+            href={`/location/${getIdParam(character.origin.url)}`}
+          >{`Origin: ${character.origin.name}`}</DetailItemLink>
           <Form onSubmit={(e) => e.preventDefault()}>
             <TextArea
               placeholder="Add a description..."
