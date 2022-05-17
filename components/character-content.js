@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import { useState } from "react";
 
 const Container = styled.div`
   display: flex;
@@ -55,6 +56,22 @@ const DetailItemMedium = styled(DetailItem)`
   font-size: 28px;
 `;
 
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
+
+const TextArea = styled.textarea`
+  margin: 10px 0;
+  min-height: 100px;
+  min-width: 400px;
+`;
+
+const Button = styled.button`
+  height: 28px;
+  max-width: 70px;
+`;
+
 const getIdParam = (url) => {
   return url.split("/").at(-1);
 };
@@ -66,8 +83,15 @@ const CharacterContent = ({
   species,
   type,
   origin,
-  location
+  location,
+  description
 }) => {
+  const [text, setText] = useState(description || "");
+
+  const handleChange = (e) => {
+    setText(e.target.value);
+  };
+
   return (
     <Container>
       <Column style={{ maxWidth: "300px" }}>
@@ -91,7 +115,14 @@ const CharacterContent = ({
           <DetailItemLink
             href={`/location/${getIdParam(location.url)}`}
           >{`Origin: ${origin.name}`}</DetailItemLink>
-          <DetailItemMedium>{`Status: ${status}`}</DetailItemMedium>
+          <Form onSubmit={(e) => e.preventDefault()}>
+            <TextArea
+              placeholder="Add a description..."
+              value={text}
+              onChange={handleChange}
+            />
+            <Button>Save</Button>
+          </Form>
         </CharacterDetails>
       </Column>
     </Container>
@@ -111,7 +142,8 @@ CharacterContent.propTypes = {
   location: PropTypes.shape({
     name: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired
-  }).isRequired
+  }).isRequired,
+  description: PropTypes.string
 };
 
 export default CharacterContent;
