@@ -1,4 +1,7 @@
-import { postCharacterDescription } from "../../server/services/json-db";
+import {
+  postCharacterDescription,
+  putCharacterDescription
+} from "../../server/services/json-db";
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
@@ -7,8 +10,8 @@ export default async function handler(req, res) {
   }
 
   if (req.method === "PUT") {
-    // handle put
+    const character = await putCharacterDescription(req.body);
 
-    res.status(200).json({});
+    res.status(200).json(character);
   }
 }

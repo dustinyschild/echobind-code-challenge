@@ -28,11 +28,23 @@ export const getCharacterDescription = async (id) => {
 export const postCharacterDescription = async (character) => {
   const characters = await getCharacters();
 
-  console.log("GETTING CHARACTERS:", { characters });
-
   characters.push(character);
 
   await saveCharacters(characters);
 
   return character;
+};
+
+export const putCharacterDescription = async (newCharacter) => {
+  let characters = await getCharacters();
+
+  characters = characters.map((character) => {
+    if (character.id === parseInt(newCharacter.id)) {
+      return newCharacter;
+    }
+  });
+
+  await saveCharacters(characters);
+
+  return newCharacter;
 };
