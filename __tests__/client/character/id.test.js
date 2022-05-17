@@ -5,7 +5,19 @@ import { withTheme } from "../../../helpers/withTheme";
 describe("Character", () => {
   test("renders a heading", () => {
     const character = {
-      name: "character's name"
+      name: "character's name",
+      image: "http://dummyurl",
+      status: "dead",
+      species: "alien",
+      type: "",
+      origin: {
+        name: "someplace",
+        url: "http://dummyurl"
+      },
+      location: {
+        name: "a name",
+        url: "http://dummyurl"
+      }
     };
 
     const { getByText } = RTL.render(
