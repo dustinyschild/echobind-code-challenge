@@ -1,4 +1,3 @@
-import { useContext, useEffect } from "react";
 import Head from "next/head";
 import { HeroText, HeroWrapper } from "../../components/styled/hero";
 import { getCharacter } from "../../server/services/rick-and-morty-api";

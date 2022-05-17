@@ -77,7 +77,7 @@ const getIdParam = (url) => {
   return url.split("/").at(-1);
 };
 
-const CharacterContent = ({}) => {
+const CharacterContent = () => {
   const { character, setCharacter } = useContext(CharacterContext);
 
   const [text, setText] = useState(character.description || "");
