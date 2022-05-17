@@ -2,7 +2,7 @@ import { postCharacterDescription } from "../../server/services/json-db";
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    const character = await postCharacterDescription();
+    const character = await postCharacterDescription(req.body);
     res.status(201).json(character);
   }
 

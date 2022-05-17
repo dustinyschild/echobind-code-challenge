@@ -19,6 +19,8 @@ export const getCharacterDescription = async (id) => {
     return character.id === parseInt(id);
   });
 
+  console.log({ character });
+
   // default description to null if character does not exist
   return character || { id, description: null };
 };
@@ -29,8 +31,6 @@ export const postCharacterDescription = async (character) => {
   console.log("GETTING CHARACTERS:", { characters });
 
   characters.push(character);
-
-  console.log({ characters });
 
   await saveCharacters(characters);
 

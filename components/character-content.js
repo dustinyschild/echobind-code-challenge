@@ -95,7 +95,7 @@ const CharacterContent = ({
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         id,
-        text
+        description: text
       })
     });
   };
