@@ -87,12 +87,11 @@ const CharacterContent = ({
   location,
   description
 }) => {
-  const [text, setText] = useState(description);
+  const [text, setText] = useState(description || "");
 
   const handleClick = () => {
-    console.log("calling fetch");
     fetch("/api/characters", {
-      method: "POST",
+      method: description ? "PUT" : "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         id,

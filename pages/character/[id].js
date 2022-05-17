@@ -26,11 +26,11 @@ function Character({ character }) {
 }
 
 export async function getServerSideProps({ params }) {
-  const character = await getCharacter(params.id);
-
-  console.log(typeof params.id);
   //could promise.all
-  character.description = await getCharacterDescription(params.id);
+  const character = await getCharacter(params.id);
+  const { description } = await getCharacterDescription(params.id);
+
+  character.description = description;
 
   return { props: { character } };
 }

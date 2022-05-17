@@ -1,12 +1,27 @@
-import characters from "../../data/characters.json";
+import { promises as fs } from "fs";
+
+const getCharacters = async () => {
+  return fs.readFile("data/characters.json");
+};
+
+const saveCharacters = async () => {
+  // const currentCharacters = await getCharacters();
+  // await fs.writeFile("data/characters.json", JSON.stringify(characters));
+};
 
 export const getCharacterDescription = async (id) => {
-  console.log("getting character description...");
+  const characters = await getCharacters();
+
   const character = characters.find((character) => {
     return character.id === parseInt(id);
   });
 
-  // some error handling or validation here?
+  // default description to null if character does not exist
+  return character || { id, description: null };
+};
 
-  return character.description || "";
+export const postCharacterDescription = async (character) => {
+  await saveCharacter();
+
+  return character;
 };
