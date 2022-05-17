@@ -1,12 +1,12 @@
-import { promises as fs } from "fs";
-import path from "path";
+import characters from "../../data/characters.json";
 
 export const getCharacterDescription = async (id) => {
-  const res = await fs.readFile(path.resolve(__dirname, "../../db.json"));
-
-  const data = await res.json();
+  console.log("getting character description...");
+  const character = characters.find((character) => {
+    return character.id === parseInt(id);
+  });
 
   // some error handling or validation here?
 
-  return data.description || "";
+  return character.description || "";
 };
