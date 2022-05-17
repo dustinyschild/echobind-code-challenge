@@ -15,7 +15,7 @@ const LocationName = styled.a`
   cursor: pointer;
 
   color: ${({ theme }) => theme.page.card.text};
-  font-size: 30px;
+  font-size: 36px;
   font-weight: bold;
 
   &::selection {

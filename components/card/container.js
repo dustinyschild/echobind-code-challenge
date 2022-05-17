@@ -5,9 +5,7 @@ const CardContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
 
-  margin-left: 100px;
-  margin-right: 100px;
-  margin-top: 50px;
+  margin-top: 20px;
 `;
 
 export default CardContainer;

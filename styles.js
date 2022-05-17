@@ -43,7 +43,9 @@ export const theme = {
     },
     body: {
       text: colors.white,
-      background: colors.grey
+      background: colors.grey,
+      highlightText: colors.yellow,
+      highlightBackground: colors.darkGrey
     },
     footer: {
       background: colors.darkGrey
