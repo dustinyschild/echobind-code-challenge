@@ -27,3 +27,11 @@ export const getCharacter = async (id) => {
 
   return data;
 };
+
+export const getCharacterByUrl = async (url) => {
+  const res = await fetch(url);
+
+  const data = await res.json();
+
+  return data;
+};

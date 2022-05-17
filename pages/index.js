@@ -7,20 +7,7 @@ import Body from "../components/styled/body";
 import { HeroText, HeroWrapper } from "../components/styled/hero";
 import Page from "../components/styled/page";
 import { getAllLocations } from "../server/services/rick-and-morty-api";
-
-const BodyHeading = styled.div`
-  height: 50px;
-
-  text-align: center;
-  font-size: 30px;
-  font-weight: bold;
-
-  color: ${({ theme }) => theme.page.body.text};
-  &::selection {
-    color: ${({ theme }) => theme.page.header.highlightText};
-    background: ${({ theme }) => theme.page.header.highlightBackground};
-  }
-`;
+import BodyHeading from "../components/styled/body-heading";
 
 function Home({ locations }) {
   return (
