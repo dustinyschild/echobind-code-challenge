@@ -113,7 +113,7 @@ const CharacterContent = ({
             href={`/location/${getIdParam(location.url)}`}
           >{`Location: ${location.name}`}</DetailItemLink>
           <DetailItemLink
-            href={`/location/${getIdParam(location.url)}`}
+            href={`/location/${getIdParam(origin.url)}`}
           >{`Origin: ${origin.name}`}</DetailItemLink>
           <Form onSubmit={(e) => e.preventDefault()}>
             <TextArea
