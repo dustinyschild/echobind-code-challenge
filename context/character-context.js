@@ -6,10 +6,6 @@ export const CharacterContext = React.createContext();
 export const CharacterProvider = ({ children, initialCharacterState }) => {
   const [character, setCharacter] = useState(initialCharacterState);
 
-  useEffect(() => {
-    console.log(character);
-  }, [character]);
-
   return (
     <CharacterContext.Provider value={{ character, setCharacter }}>
       {children}

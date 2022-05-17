@@ -13,13 +13,9 @@ const saveCharacters = async (characters) => {
 export const getCharacterDescription = async (id) => {
   const characters = await getCharacters();
 
-  console.log({ characters });
-
   const character = characters.find((character) => {
     return character.id === parseInt(id);
   });
-
-  console.log({ character });
 
   // default description to null if character does not exist
   return character || { id, description: null };

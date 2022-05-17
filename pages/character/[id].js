@@ -34,8 +34,6 @@ export async function getServerSideProps({ params }) {
   const character = await getCharacter(params.id);
   const { description } = await getCharacterDescription(params.id);
 
-  console.log({ description });
-
   character.description = description;
 
   return { props: { character } };
