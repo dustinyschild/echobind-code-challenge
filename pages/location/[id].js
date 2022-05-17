@@ -5,7 +5,6 @@ import {
   HeroWrapper
 } from "../../components/styled/hero";
 import {
-  getCharacter,
   getCharacterByUrl,
   getLocation
 } from "../../server/services/rick-and-morty-api";

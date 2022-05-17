@@ -1,5 +1,4 @@
 import Head from "next/head";
-import styled from "styled-components";
 import PropTypes from "prop-types";
 import CardContainer from "../components/card/container";
 import LocationCard from "../components/location-card";
