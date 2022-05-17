@@ -1,12 +1,9 @@
-export default function handler(req, res) {
-  if (req.method === "POST") {
-    // add to data file
-    res.status(201).json({});
-  }
+import { postCharacterDescription } from "../../server/services/json-db";
 
-  if (req.method === "GET") {
-    // handle get
-    res.status(200).json({});
+export default async function handler(req, res) {
+  if (req.method === "POST") {
+    const character = await postCharacterDescription();
+    res.status(201).json(character);
   }
 
   if (req.method === "PUT") {
