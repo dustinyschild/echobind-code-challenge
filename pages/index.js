@@ -1,10 +1,13 @@
 import Head from "next/head";
+import PropTypes from "prop-types";
+import CardContainer from "../components/card/container";
+import LocationCard from "../components/location-card";
 import Body from "../components/styled/body";
 import { HeroText, HeroWrapper } from "../components/styled/hero";
 import Page from "../components/styled/page";
 import { getAllLocations } from "../server/services/rick-and-morty-api";
 
-function Home() {
+function Home({ locations }) {
   return (
     <Page>
       <Head>
@@ -15,7 +18,13 @@ function Home() {
       <HeroWrapper>
         <HeroText>Keeping Up with the Cronenbergs</HeroText>
       </HeroWrapper>
-      <Body>some content</Body>
+      <Body>
+        <CardContainer>
+          {locations.map((location) => (
+            <LocationCard key={location.id} location={location} />
+          ))}
+        </CardContainer>
+      </Body>
     </Page>
   );
 }
@@ -23,7 +32,11 @@ function Home() {
 export async function getServerSideProps() {
   const locations = await getAllLocations();
 
-  return { props: { locations } };
+  return { props: { locations: locations.results } };
 }
+
+Home.propTypes = {
+  locations: PropTypes.array.isRequired // fill in schema later
+};
 
 export default Home;

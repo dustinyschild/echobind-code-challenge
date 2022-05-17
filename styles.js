@@ -25,6 +25,7 @@ const colors = {
   darkGrey: "#202329",
   grey: "#24282F",
   lightGrey: "#3C3E44",
+  lighterGrey: "#636670",
   yellow: "#FF9800",
   white: "#FFFFFF",
   offWhite: "#F5F5F5",
@@ -49,8 +50,9 @@ export const theme = {
     },
     card: {
       text: colors.offWhite,
-      textHighlight: colors.yellow,
-      background: colors.lightGrey
+      highlightText: colors.yellow,
+      background: colors.lighterGrey,
+      highlightBackground: colors.darkGrey
     },
     status: {
       dead: colors.orange,
