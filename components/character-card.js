@@ -32,7 +32,9 @@ const CharacterCard = ({ character }) => {
   return (
     <Card>
       <ContentWrapper>
-        <CharacterName href={`/character/${character.id}`}></CharacterName>
+        <CharacterName href={`/character/${character.id}`}>
+          {character.name}
+        </CharacterName>
       </ContentWrapper>
     </Card>
   );

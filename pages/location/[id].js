@@ -1,5 +1,9 @@
 import Head from "next/head";
-import { HeroText, HeroWrapper } from "../../components/styled/hero";
+import {
+  HeroSubText,
+  HeroText,
+  HeroWrapper
+} from "../../components/styled/hero";
 import {
   getCharacter,
   getCharacterByUrl,
@@ -22,6 +26,8 @@ function Location({ location }) {
       </Head>
       <HeroWrapper>
         <HeroText>{location.name}</HeroText>
+        <HeroSubText>{location.type}</HeroSubText>
+        <HeroSubText>{location.dimension}</HeroSubText>
       </HeroWrapper>
       <Body>
         <BodyHeading>Select a Charcter</BodyHeading>
@@ -48,7 +54,9 @@ export async function getServerSideProps({ params }) {
 Location.propTypes = {
   location: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    residents: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
+    residents: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+    type: PropTypes.string.isRequired,
+    dimension: PropTypes.string.isRequired
   }).isRequired
 };
 
