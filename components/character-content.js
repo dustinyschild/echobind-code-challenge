@@ -77,6 +77,7 @@ const getIdParam = (url) => {
 };
 
 const CharacterContent = ({
+  id,
   image,
   name,
   status,
@@ -86,7 +87,19 @@ const CharacterContent = ({
   location,
   description
 }) => {
-  const [text, setText] = useState(description || "");
+  const [text, setText] = useState(description);
+
+  const handleClick = () => {
+    console.log("calling fetch");
+    fetch("/api/characters", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id,
+        text
+      })
+    });
+  };
 
   const handleChange = (e) => {
     setText(e.target.value);
@@ -121,7 +134,7 @@ const CharacterContent = ({
               value={text}
               onChange={handleChange}
             />
-            <Button>Save</Button>
+            <Button onClick={handleClick}>Save</Button>
           </Form>
         </CharacterDetails>
       </Column>
@@ -130,6 +143,7 @@ const CharacterContent = ({
 };
 
 CharacterContent.propTypes = {
+  id: PropTypes.number.isRequired,
   image: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   status: PropTypes.string.isRequired,
