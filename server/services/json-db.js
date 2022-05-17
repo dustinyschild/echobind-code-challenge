@@ -1,8 +1,7 @@
 import { promises as fs } from "fs";
 
 const getCharacters = async () => {
-  return fs.readFile("data/characters.json", "utf8", (error, data) => {
-    console.log(JSON.parse(data));
+  return fs.readFile("data/characters.json", "utf-8").then((data) => {
     return JSON.parse(data);
   });
 };
