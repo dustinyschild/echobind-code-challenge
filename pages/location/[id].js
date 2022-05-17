@@ -25,8 +25,8 @@ function Location({ location }) {
       </Head>
       <HeroWrapper>
         <HeroText>{location.name}</HeroText>
-        <HeroSubText>{location.type}</HeroSubText>
-        <HeroSubText>{location.dimension}</HeroSubText>
+        <HeroSubText>Type: {location.type}</HeroSubText>
+        <HeroSubText>Dimension: {location.dimension}</HeroSubText>
       </HeroWrapper>
       <Body>
         <BodyHeading>Select a Charcter</BodyHeading>
