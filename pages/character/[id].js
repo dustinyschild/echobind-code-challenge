@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import Page from "../../components/styled/page";
 import Body from "../../components/styled/body";
 import CharacterContent from "../../components/character-content";
+import { getCharacterDescription } from "../../server/services/json-db";
 
 function Character({ character }) {
   return (
@@ -26,6 +27,9 @@ function Character({ character }) {
 
 export async function getServerSideProps({ params }) {
   const character = await getCharacter(params.id);
+
+  //could promise.all
+  character.description = await getCharacterDescription(params.id);
 
   return { props: { character } };
 }
