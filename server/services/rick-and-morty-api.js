@@ -13,7 +13,6 @@ export const getAllLocations = async () => {
 };
 
 export const getLocation = async (id) => {
-  console.log({ id });
   const res = await fetch(`${rickAndMortyApi.baseUrl}/location/${id}`);
 
   const data = await res.json();
