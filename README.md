@@ -3,6 +3,10 @@
 
 ### Checkout the project board [here](https://trello.com/invite/b/TktzkoQq/5a21680fb3a5d0b987e660c344f6aa15/echobind-code-challenge)
 
+### Initial project outline: [Sketches](docs/sketches.md)
+
+### See project retro/post-mortem [here](docs/project-retro.md)
+
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
