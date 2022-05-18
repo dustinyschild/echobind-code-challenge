@@ -1,4 +1,5 @@
 import { promises as fs } from "fs";
+import "../init-db";
 
 const getCharacters = async () => {
   return fs.readFile("data/characters.json", "utf-8").then((data) => {
@@ -6,7 +7,7 @@ const getCharacters = async () => {
   });
 };
 
-const saveCharacters = async (characters) => {
+export const saveCharacters = async (characters) => {
   await fs.writeFile("data/characters.json", JSON.stringify(characters));
 };
 
