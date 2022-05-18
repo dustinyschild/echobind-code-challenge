@@ -1,6 +1,8 @@
+import { tmpdir } from "os";
 import fs from "fs";
 
 (() => {
+  console.log(tmpdir());
   try {
     fs.accessSync("data/characters.json");
   } catch {
