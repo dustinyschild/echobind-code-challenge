@@ -1,14 +1,15 @@
 import { tmpdir } from "os";
 import fs from "fs";
 
-(() => {
-  console.log(tmpdir());
+export const initData = () => {
+  const tmpDir = tmpdir();
   try {
-    fs.accessSync("data/characters.json");
+    fs.accessSync(`${tmpDir}/characters.json`);
   } catch {
     console.log("initializing data...");
 
-    fs.mkdirSync("data");
-    fs.writeFileSync("data/characters.json", JSON.stringify([]));
+    fs.writeFileSync(`${tmpDir}/characters.json`, JSON.stringify([]));
   }
-})();
+
+  return tmpDir;
+};
