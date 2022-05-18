@@ -3,6 +3,10 @@
 const config = {
   rickAndMortyApi: {
     baseUrl: "https://rickandmortyapi.com/api"
+  },
+  jsonServerApi: {
+    baseUrl:
+      "https://my-json-server.typicode.com/dustinyschild/echobind-code-challenge/main"
   }
 };
 
